@@ -1,0 +1,15 @@
+import React from 'react';
+import { View, Text, Button } from 'react-native';
+
+export const HomeScreen = ({ navigation }) => {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Coffee Rush</Text>
+      <Button
+        title="About us"
+        onPress={() => navigation.navigate('About us')}
+      />
+      <Button title="Profile" onPress={() => navigation.navigate('Profile')} />
+    </View>
+  );
+};
