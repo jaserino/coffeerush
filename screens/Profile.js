@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Text, Image, TextInput, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { Input, Avatar } from '@rneui/themed';
 
-export const Profile = () => {
+export const Profile = ({ route, navigation }) => {
+  console.log(route.params?.id);
   return (
     <View style={styles.container}>
       <View style={styles.image}>
@@ -27,13 +28,16 @@ export const Profile = () => {
         <View>
           <Text style={styles.label}>Name</Text>
           <Input
+            onPressIn={() => navigation.push('Name')}
             leftIcon={{ type: 'font-awesome', name: 'user' }}
             rightIcon={{ type: 'font-awesome', name: 'chevron-right' }}
+            value={route.params?.id}
           />
         </View>
         <View>
           <Text style={styles.label}>Email</Text>
           <Input
+            onPressIn={() => navigation.push('Email')}
             leftIcon={{ type: 'MaterialIcons', name: 'email' }}
             rightIcon={{ type: 'font-awesome', name: 'chevron-right' }}
           />
@@ -41,6 +45,7 @@ export const Profile = () => {
         <View>
           <Text style={styles.label}>Phone</Text>
           <Input
+            onPressIn={() => navigation.push('Phone')}
             leftIcon={{ type: 'font-awesome', name: 'phone' }}
             rightIcon={{ type: 'font-awesome', name: 'chevron-right' }}
           />
@@ -48,6 +53,7 @@ export const Profile = () => {
         <View>
           <Text style={styles.label}>Tell us about yourself</Text>
           <Input
+            onPressIn={() => navigation.push('About')}
             leftIcon={{ type: 'font-awesome', name: 'pencil' }}
             rightIcon={{ type: 'font-awesome', name: 'chevron-right' }}
           />
