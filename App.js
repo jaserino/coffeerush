@@ -1,5 +1,10 @@
+/*
+#1A374D
+#406882
+#6998AB
+#B1D0E0
+*/
 import * as React from 'react';
-import { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -20,7 +25,7 @@ const App = () => {
           component={Profile}
           options={{
             headerStyle: {
-              backgroundColor: '#00ABB3',
+              backgroundColor: '#1A374D',
             },
           }}
         />

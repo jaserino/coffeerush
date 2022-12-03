@@ -1,28 +1,29 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Input, Avatar } from '@rneui/themed';
+import { Input } from '@rneui/themed';
+import ToastManager, { Toast } from 'toastify-react-native';
+
+import UploadImage from '../components/Image';
 
 export const Profile = ({ route, navigation }) => {
-  console.log(route.params?.id);
+  const showToasts = () => {
+    Toast.success('updated entry!', 'center');
+  };
+
+  if (
+    route.params?.id ||
+    route.params?.idPhone ||
+    route.params?.idEmail ||
+    route.params?.idAbout
+  ) {
+    showToasts();
+  }
+
   return (
     <View style={styles.container}>
+      <ToastManager />
       <View style={styles.image}>
-        <Avatar
-          size={150}
-          rounded
-          source={{
-            uri: 'https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-          }}
-          title="Bj"
-          containerStyle={{
-            backgroundColor: '#cdde20',
-            borderColor: '#3C4048',
-            borderStyle: 'solid',
-            borderWidth: 5,
-          }}
-        >
-          <Avatar.Accessory size={40} />
-        </Avatar>
+        <UploadImage />
       </View>
       <View style={{ padding: 10 }}>
         <View>
@@ -40,6 +41,7 @@ export const Profile = ({ route, navigation }) => {
             onPressIn={() => navigation.push('Email')}
             leftIcon={{ type: 'MaterialIcons', name: 'email' }}
             rightIcon={{ type: 'font-awesome', name: 'chevron-right' }}
+            value={route.params?.idEmail}
           />
         </View>
         <View>
@@ -48,6 +50,7 @@ export const Profile = ({ route, navigation }) => {
             onPressIn={() => navigation.push('Phone')}
             leftIcon={{ type: 'font-awesome', name: 'phone' }}
             rightIcon={{ type: 'font-awesome', name: 'chevron-right' }}
+            value={route.params?.idPhone}
           />
         </View>
         <View>
@@ -56,6 +59,7 @@ export const Profile = ({ route, navigation }) => {
             onPressIn={() => navigation.push('About')}
             leftIcon={{ type: 'font-awesome', name: 'pencil' }}
             rightIcon={{ type: 'font-awesome', name: 'chevron-right' }}
+            value={route.params?.idAbout}
           />
         </View>
       </View>
