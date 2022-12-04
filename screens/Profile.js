@@ -1,9 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Input } from '@rneui/themed';
+import { Input, Card } from '@rneui/themed';
 import ToastManager, { Toast } from 'toastify-react-native';
 
 import UploadImage from '../components/Image';
+import { color } from '@rneui/base';
 
 export const Profile = ({ route, navigation }) => {
   const showToasts = () => {
@@ -29,36 +30,64 @@ export const Profile = ({ route, navigation }) => {
         <View>
           <Text style={styles.label}>Name</Text>
           <Input
+            inputStyle={{ color: '#303030' }}
             onPressIn={() => navigation.push('Name')}
-            leftIcon={{ type: 'font-awesome', name: 'user' }}
-            rightIcon={{ type: 'font-awesome', name: 'chevron-right' }}
+            leftIcon={{ type: 'font-awesome', name: 'user', color: '#826A5C' }}
+            rightIcon={{
+              type: 'font-awesome',
+              name: 'chevron-right',
+              color: '#826A5C',
+            }}
             value={route.params?.id}
           />
         </View>
         <View>
           <Text style={styles.label}>Email</Text>
           <Input
+            inputStyle={{ color: '#303030' }}
             onPressIn={() => navigation.push('Email')}
-            leftIcon={{ type: 'MaterialIcons', name: 'email' }}
-            rightIcon={{ type: 'font-awesome', name: 'chevron-right' }}
+            leftIcon={{
+              type: 'MaterialIcons',
+              name: 'email',
+              color: '#826A5C',
+            }}
+            rightIcon={{
+              type: 'font-awesome',
+              name: 'chevron-right',
+              color: '#826A5C',
+            }}
             value={route.params?.idEmail}
           />
         </View>
         <View>
           <Text style={styles.label}>Phone</Text>
           <Input
+            inputStyle={{ color: '#303030' }}
             onPressIn={() => navigation.push('Phone')}
-            leftIcon={{ type: 'font-awesome', name: 'phone' }}
-            rightIcon={{ type: 'font-awesome', name: 'chevron-right' }}
+            leftIcon={{ type: 'font-awesome', name: 'phone', color: '#826A5C' }}
+            rightIcon={{
+              type: 'font-awesome',
+              name: 'chevron-right',
+              color: '#826A5C',
+            }}
             value={route.params?.idPhone}
           />
         </View>
         <View>
-          <Text style={styles.label}>Tell us about yourself</Text>
+          <Text style={styles.label}>Whats your ideal coffee order?</Text>
           <Input
+            inputStyle={{ color: '#303030' }}
             onPressIn={() => navigation.push('About')}
-            leftIcon={{ type: 'font-awesome', name: 'pencil' }}
-            rightIcon={{ type: 'font-awesome', name: 'chevron-right' }}
+            leftIcon={{
+              type: 'font-awesome',
+              name: 'pencil',
+              color: '#826A5C',
+            }}
+            rightIcon={{
+              type: 'font-awesome',
+              name: 'chevron-right',
+              color: '#826A5C',
+            }}
             value={route.params?.idAbout}
           />
         </View>
@@ -88,6 +117,6 @@ const styles = StyleSheet.create({
   label: {
     opacity: 0.8,
     marginLeft: 7,
-    color: '#B2B2B2',
+    color: '#303030',
   },
 });

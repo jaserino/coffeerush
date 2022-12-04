@@ -26,13 +26,17 @@ const UploadImage = () => {
         rounded
         source={{ uri: image }}
         containerStyle={{
-          backgroundColor: 'grey',
+          backgroundColor: '#ffff',
           borderStyle: 'solid',
-          borderColor: '#B1D0E0',
+          borderColor: '#8C0327',
           borderWidth: 6,
         }}
       >
-        <Avatar.Accessory size={40} onPress={pickImage} />
+        <Avatar.Accessory
+          containerStyle={{ borderRadius: 100, backgroundColor: '#8C0327' }}
+          size={40}
+          onPress={pickImage}
+        />
       </Avatar>
     </View>
   );

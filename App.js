@@ -1,13 +1,18 @@
 /*
-#1A374D
-#406882
-#6998AB
-#B1D0E0
+color pallete
+    primary: "#5E503F",
+    secondary: "#826A5C",
+    accent: "#EAE0D5",
+    neutral: "#22333B",
+    "base-100": "#f1f1f1",
+    fonts: "#0A0908"
 */
+
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import { Home } from './screens/Home';
 import { Profile } from './screens/Profile';
 import { Name } from './screens/Name';
 import { Email } from './screens/Email';
@@ -21,18 +26,59 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            headerStyle: {
+              backgroundColor: '#fff',
+            },
+          }}
+        />
+        <Stack.Screen
           name="Profile"
           component={Profile}
           options={{
             headerStyle: {
-              backgroundColor: '#1A374D',
+              backgroundColor: '#5E503F',
             },
           }}
         />
-        <Stack.Screen name="Name" component={Name} />
-        <Stack.Screen name="Email" component={Email} />
-        <Stack.Screen name="Phone" component={Phone} />
-        <Stack.Screen name="About" component={About} />
+        <Stack.Screen
+          options={{
+            headerStyle: {
+              backgroundColor: '#5E503F',
+            },
+          }}
+          name="Name"
+          component={Name}
+        />
+        <Stack.Screen
+          options={{
+            headerStyle: {
+              backgroundColor: '#5E503F',
+            },
+          }}
+          name="Email"
+          component={Email}
+        />
+        <Stack.Screen
+          options={{
+            headerStyle: {
+              backgroundColor: '#5E503F',
+            },
+          }}
+          name="Phone"
+          component={Phone}
+        />
+        <Stack.Screen
+          options={{
+            headerStyle: {
+              backgroundColor: '#5E503F',
+            },
+          }}
+          name="About"
+          component={About}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

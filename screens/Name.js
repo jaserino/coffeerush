@@ -1,13 +1,26 @@
 import React from 'react';
 
-import { View } from 'react-native';
+import { View, Image } from 'react-native';
 import { Input, Button } from '@rneui/themed';
 
 export const Name = ({ navigation }) => {
   const [name, setName] = React.useState('');
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'stretch',
+      }}
+    >
+      <Image
+        style={{
+          width: '100%',
+          height: '45%',
+        }}
+        source={require('../assets/coffeerush/beans.jpeg')}
+      />
       <Input
         placeholder="enter your name"
         rightIcon={{ type: 'font-awesome', name: 'chevron-right' }}
@@ -17,12 +30,12 @@ export const Name = ({ navigation }) => {
       <Button
         title="Update"
         buttonStyle={{
-          backgroundColor: '#00ABB3',
+          backgroundColor: '#8C0327',
           borderRadius: 5,
         }}
         titleStyle={{ fontWeight: 'bold', fontSize: 23 }}
         containerStyle={{
-          marginHorizontal: 50,
+          marginHorizontal: 100,
           height: 50,
           width: 200,
           marginVertical: 10,

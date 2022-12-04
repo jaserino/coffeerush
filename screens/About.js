@@ -1,45 +1,43 @@
 import React from 'react';
-import { View, TextInput, StyleSheet, Text } from 'react-native';
-import { Button } from '@rneui/themed';
+import { View, TextInput, StyleSheet, Text, Image } from 'react-native';
+import { Button, Card, Icon } from '@rneui/themed';
 
 export const About = ({ navigation }) => {
   const [about, setAbout] = React.useState('');
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text style={{ fontSize: 40 }}>Tell us about yourself</Text>
-      <View style={styles.textarea}>
+    <View style={styles.container}>
+      <Card>
+        <Text style={styles.title}>
+          How do you take your <Text style={{ color: '#8C0327' }}>coffee</Text>{' '}
+          ?
+        </Text>
+        <Card.Divider />
+
         <TextInput
-          style={{ textAlignVertical: 'top' }}
-          width={300}
-          placeholder="Tell us about yourself ..."
+          style={styles.textInput}
+          placeholder="Black with 3 sugars ..."
           value={about}
           onChangeText={setAbout}
-          autoFocus={true}
-          clearButtonMode="while-editing"
           multiline={true}
           numberOfLines={4}
         />
-      </View>
-      <Button
-        title="Update"
-        buttonStyle={{
-          backgroundColor: '#00ABB3',
-          borderRadius: 5,
-        }}
-        titleStyle={{ fontWeight: 'bold', fontSize: 23 }}
-        containerStyle={{
-          marginHorizontal: 50,
-          height: 50,
-          width: 200,
-          marginVertical: 10,
-        }}
-        onPress={() => {
-          navigation.navigate({
-            name: 'Profile',
-            params: { idAbout: about },
-            merge: true,
-          });
-        }}
+        <Button
+          title="Update"
+          buttonStyle={styles.buttonStyle}
+          titleStyle={styles.buttonFont}
+          containerStyle={styles.buttonContainer}
+          onPress={() => {
+            navigation.navigate({
+              name: 'Profile',
+              params: { idAbout: about },
+              merge: true,
+            });
+          }}
+        />
+      </Card>
+      <Image
+        style={styles.image}
+        source={require('../assets/coffeerush/cup1.jpg')}
       />
     </View>
   );
@@ -47,14 +45,38 @@ export const About = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#fff',
+  },
+  image: {
+    width: '100%',
+    height: 300,
   },
 
-  textarea: {
-    borderColor: '#3C4048',
-    borderStyle: 'solid',
-    borderWidth: 1,
-    opacity: 0.5,
+  title: {
+    fontWeight: 'bold',
+    fontSize: 28,
+    marginBottom: 10,
+    textAlign: 'center',
+  },
+  textInput: {
+    textAlignVertical: 'top',
+  },
+  buttonContainer: {
+    marginHorizontal: 50,
+    height: 50,
+    width: 200,
+    marginVertical: 10,
+    marginTop: 20,
+  },
+  buttonStyle: {
+    backgroundColor: '#8C0327',
+    borderRadius: 5,
+  },
+  buttonFont: {
+    fontWeight: 'bold',
+    fontSize: 23,
   },
 });
