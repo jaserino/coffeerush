@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, TextInput, StyleSheet, Text, Image } from 'react-native';
-import { Button, Card, Icon } from '@rneui/themed';
+import { Button, Card } from '@rneui/themed';
 
 export const About = ({ navigation }) => {
   const [about, setAbout] = React.useState('');
@@ -54,7 +54,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 300,
   },
-
   title: {
     fontWeight: 'bold',
     fontSize: 28,
@@ -72,7 +71,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   buttonStyle: {
-    backgroundColor: '#8C0327',
+    backgroundColor: '#826A5C',
     borderRadius: 5,
   },
   buttonFont: {

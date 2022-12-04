@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Image, View } from 'react-native';
+import React, { useState } from 'react';
+import { View, StyleSheet } from 'react-native';
 import { Avatar } from '@rneui/themed';
 import * as ImagePicker from 'expo-image-picker';
 
@@ -14,26 +14,20 @@ const UploadImage = () => {
       quality: 1,
     });
 
-    console.log(result);
     if (!result.canceled) {
       setImage(result.assets[0].uri);
     }
   };
   return (
-    <View styles={{ overflow: 'hidden', position: 'absolute' }}>
+    <View styles={style.container}>
       <Avatar
         size={150}
         rounded
         source={{ uri: image }}
-        containerStyle={{
-          backgroundColor: '#ffff',
-          borderStyle: 'solid',
-          borderColor: '#8C0327',
-          borderWidth: 6,
-        }}
+        containerStyle={style.avatarContainer}
       >
         <Avatar.Accessory
-          containerStyle={{ borderRadius: 100, backgroundColor: '#8C0327' }}
+          containerStyle={style.avatarAccessory}
           size={40}
           onPress={pickImage}
         />
@@ -43,3 +37,20 @@ const UploadImage = () => {
 };
 
 export default UploadImage;
+
+const style = StyleSheet.create({
+  container: {
+    overflow: 'hidden',
+    position: 'absolute',
+  },
+  avatarContainer: {
+    backgroundColor: '#ffff',
+    borderStyle: 'solid',
+    borderColor: '#8C0327',
+    borderWidth: 6,
+  },
+  avatarAccessory: {
+    borderRadius: 100,
+    backgroundColor: '#8C0327',
+  },
+});

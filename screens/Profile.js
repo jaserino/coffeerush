@@ -1,10 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Input, Card } from '@rneui/themed';
+import { Input } from '@rneui/themed';
 import ToastManager, { Toast } from 'toastify-react-native';
 
 import UploadImage from '../components/Image';
-import { color } from '@rneui/base';
 
 export const Profile = ({ route, navigation }) => {
   const showToasts = () => {
@@ -102,13 +101,7 @@ const styles = StyleSheet.create({
     height: '100%',
     backgroundColor: '#fff',
   },
-  profilecontainer: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#00ABB3',
-  },
+
   image: {
     marginTop: 30,
     padding: 30,
