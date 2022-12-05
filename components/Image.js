@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Avatar } from '@rneui/themed';
 import * as ImagePicker from 'expo-image-picker';
+import { GlobalContext } from '../context/GlobalContext';
 
 const UploadImage = () => {
-  const [image, setImage] = useState(null);
+  const { image, setImage } = useContext(GlobalContext);
 
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -23,7 +24,7 @@ const UploadImage = () => {
       <Avatar
         size={150}
         rounded
-        source={{ uri: image }}
+        source={image ? { uri: image } : null}
         containerStyle={style.avatarContainer}
       >
         <Avatar.Accessory

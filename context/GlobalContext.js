@@ -7,6 +7,7 @@ const GlobalProvider = ({ children }) => {
   const [email, setEmail] = React.useState('');
   const [phone, setPhone] = React.useState('');
   const [about, setAbout] = React.useState('');
+  const [image, setImage] = React.useState('');
   return (
     <GlobalContext.Provider
       value={{
@@ -18,6 +19,8 @@ const GlobalProvider = ({ children }) => {
         setPhone,
         about,
         setAbout,
+        image,
+        setImage,
       }}
     >
       {children}

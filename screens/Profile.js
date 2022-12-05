@@ -9,18 +9,13 @@ import { GlobalContext } from '../context/GlobalContext';
 export const Profile = ({ navigation }) => {
   const { name, email, phone, about } = useContext(GlobalContext);
 
-  // const showToasts = () => {
-  //   Toast.success('updated entry!', 'center');
-  // };
+  const showToasts = () => {
+    Toast.success('updated entry!', 'center');
+  };
 
-  // if (
-  //   route.params?.id ||
-  //   route.params?.idPhone ||
-  //   route.params?.idEmail ||
-  //   route.params?.idAbout
-  // ) {
-  //   showToasts();
-  // }
+  if (name || phone || email || about) {
+    showToasts();
+  }
 
   return (
     <View style={styles.container}>
