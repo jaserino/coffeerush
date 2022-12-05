@@ -1,23 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Input } from '@rneui/themed';
 import ToastManager, { Toast } from 'toastify-react-native';
 
 import UploadImage from '../components/Image';
+import { GlobalContext } from '../context/GlobalContext';
 
-export const Profile = ({ route, navigation }) => {
-  const showToasts = () => {
-    Toast.success('updated entry!', 'center');
-  };
+export const Profile = ({ navigation }) => {
+  const { name, email, phone, about } = useContext(GlobalContext);
 
-  if (
-    route.params?.id ||
-    route.params?.idPhone ||
-    route.params?.idEmail ||
-    route.params?.idAbout
-  ) {
-    showToasts();
-  }
+  // const showToasts = () => {
+  //   Toast.success('updated entry!', 'center');
+  // };
+
+  // if (
+  //   route.params?.id ||
+  //   route.params?.idPhone ||
+  //   route.params?.idEmail ||
+  //   route.params?.idAbout
+  // ) {
+  //   showToasts();
+  // }
 
   return (
     <View style={styles.container}>
@@ -37,7 +40,7 @@ export const Profile = ({ route, navigation }) => {
               name: 'chevron-right',
               color: '#826A5C',
             }}
-            value={route.params?.id}
+            value={name}
           />
         </View>
         <View>
@@ -55,7 +58,7 @@ export const Profile = ({ route, navigation }) => {
               name: 'chevron-right',
               color: '#826A5C',
             }}
-            value={route.params?.idEmail}
+            value={email}
           />
         </View>
         <View>
@@ -69,7 +72,7 @@ export const Profile = ({ route, navigation }) => {
               name: 'chevron-right',
               color: '#826A5C',
             }}
-            value={route.params?.idPhone}
+            value={phone}
           />
         </View>
         <View>
@@ -87,7 +90,7 @@ export const Profile = ({ route, navigation }) => {
               name: 'chevron-right',
               color: '#826A5C',
             }}
-            value={route.params?.idAbout}
+            value={about}
           />
         </View>
       </View>

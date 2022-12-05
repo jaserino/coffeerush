@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, TextInput, StyleSheet, Text, Image } from 'react-native';
 import { Button, Card } from '@rneui/themed';
+import { GlobalContext } from '../context/GlobalContext';
 
 export const About = ({ navigation }) => {
-  const [about, setAbout] = React.useState('');
+  const { about, setAbout } = useContext(GlobalContext);
+
   return (
     <View style={styles.container}>
       <Card>
@@ -29,7 +31,7 @@ export const About = ({ navigation }) => {
           onPress={() => {
             navigation.navigate({
               name: 'Profile',
-              params: { idAbout: about },
+              params: { id: about },
               merge: true,
             });
           }}

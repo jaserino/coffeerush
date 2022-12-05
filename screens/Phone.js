@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 import { Input, Button } from '@rneui/themed';
+import { GlobalContext } from '../context/GlobalContext';
 
 export const Phone = ({ navigation }) => {
-  const [phone, setPhone] = React.useState('');
+  const { phone, setPhone } = useContext(GlobalContext);
 
   return (
     <View style={style.container}>
@@ -25,7 +26,7 @@ export const Phone = ({ navigation }) => {
         onPress={() => {
           navigation.navigate({
             name: 'Profile',
-            params: { idPhone: phone },
+            params: { id: phone },
             merge: true,
           });
         }}

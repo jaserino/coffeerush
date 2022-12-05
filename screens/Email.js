@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 import { Input, Button } from '@rneui/themed';
+import { GlobalContext } from '../context/GlobalContext';
 
 export const Email = ({ navigation }) => {
-  const [email, setEmail] = React.useState('');
+  const { email, setEmail } = useContext(GlobalContext);
 
   return (
     <View style={style.container}>
@@ -25,7 +26,7 @@ export const Email = ({ navigation }) => {
         onPress={() => {
           navigation.navigate({
             name: 'Profile',
-            params: { idEmail: email },
+            params: { id: email },
             merge: true,
           });
         }}

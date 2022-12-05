@@ -18,69 +18,72 @@ import { Name } from './screens/Name';
 import { Email } from './screens/Email';
 import { Phone } from './screens/Phone';
 import { About } from './screens/About';
+import { GlobalProvider } from './context/GlobalContext';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={Home}
-          options={{
-            headerStyle: {
-              backgroundColor: '#fff',
-            },
-          }}
-        />
-        <Stack.Screen
-          name="Profile"
-          component={Profile}
-          options={{
-            headerStyle: {
-              backgroundColor: '#5E503F',
-            },
-          }}
-        />
-        <Stack.Screen
-          options={{
-            headerStyle: {
-              backgroundColor: '#5E503F',
-            },
-          }}
-          name="Name"
-          component={Name}
-        />
-        <Stack.Screen
-          options={{
-            headerStyle: {
-              backgroundColor: '#5E503F',
-            },
-          }}
-          name="Email"
-          component={Email}
-        />
-        <Stack.Screen
-          options={{
-            headerStyle: {
-              backgroundColor: '#5E503F',
-            },
-          }}
-          name="Phone"
-          component={Phone}
-        />
-        <Stack.Screen
-          options={{
-            headerStyle: {
-              backgroundColor: '#5E503F',
-            },
-          }}
-          name="About"
-          component={About}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <GlobalProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{
+              headerStyle: {
+                backgroundColor: '#fff',
+              },
+            }}
+          />
+          <Stack.Screen
+            name="Profile"
+            component={Profile}
+            options={{
+              headerStyle: {
+                backgroundColor: '#5E503F',
+              },
+            }}
+          />
+          <Stack.Screen
+            options={{
+              headerStyle: {
+                backgroundColor: '#5E503F',
+              },
+            }}
+            name="Name"
+            component={Name}
+          />
+          <Stack.Screen
+            options={{
+              headerStyle: {
+                backgroundColor: '#5E503F',
+              },
+            }}
+            name="Email"
+            component={Email}
+          />
+          <Stack.Screen
+            options={{
+              headerStyle: {
+                backgroundColor: '#5E503F',
+              },
+            }}
+            name="Phone"
+            component={Phone}
+          />
+          <Stack.Screen
+            options={{
+              headerStyle: {
+                backgroundColor: '#5E503F',
+              },
+            }}
+            name="About"
+            component={About}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </GlobalProvider>
   );
 };
 

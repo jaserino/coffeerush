@@ -1,10 +1,10 @@
-import React from 'react';
-
+import React, { useContext } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 import { Input, Button } from '@rneui/themed';
+import { GlobalContext } from '../context/GlobalContext';
 
 export const Name = ({ navigation }) => {
-  const [name, setName] = React.useState('');
+  const { name, setName } = useContext(GlobalContext);
 
   return (
     <View style={style.container}>
